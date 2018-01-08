@@ -8,4 +8,10 @@
     tools:context="com.example.usuario.ad_ejercicios_t3.PartesActivity"
     >
 
+    <TextView
+        android:id="@+id/txvPartes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
 </android.support.constraint.ConstraintLayout>
