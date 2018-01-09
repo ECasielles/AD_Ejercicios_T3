@@ -1,8 +1,11 @@
-package com.example.usuario.ad_ejercicios_t3;
+package com.example.usuario.ad_ejercicios_t3.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.example.usuario.ad_ejercicios_t3.R;
+import com.example.usuario.ad_ejercicios_t3.utils.Analisis;
 
 import org.xmlpull.v1.XmlPullParserException;
 

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.usuario.ad_ejercicios_t3.CreacionActivity"
+    tools:context="com.example.usuario.ad_ejercicios_t3.activity.CreacionActivity"
     >
 
 </android.support.constraint.ConstraintLayout>

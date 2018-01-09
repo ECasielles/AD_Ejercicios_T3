@@ -5,11 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.usuario.ad_ejercicios_t3.activity.NotasActivity"
+    tools:context="com.example.usuario.ad_ejercicios_t3.activity.WebActivity"
     >
 
-    <TextView
-        android:id="@+id/txvNotas"
+    <WebView
+        android:id="@+id/webView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />

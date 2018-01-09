@@ -1,7 +1,9 @@
-package com.example.usuario.ad_ejercicios_t3;
+package com.example.usuario.ad_ejercicios_t3.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.usuario.ad_ejercicios_t3.R;
 
 public class CreacionActivity extends AppCompatActivity {
 

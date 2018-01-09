@@ -1,8 +1,13 @@
-package com.example.usuario.ad_ejercicios_t3;
+package com.example.usuario.ad_ejercicios_t3.utils;
 
 import android.content.Context;
 import android.content.res.XmlResourceParser;
+import android.os.Environment;
 import android.util.Xml;
+
+import com.example.usuario.ad_ejercicios_t3.Noticia;
+import com.example.usuario.ad_ejercicios_t3.activity.NoticiasActivity;
+import com.example.usuario.ad_ejercicios_t3.R;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -11,6 +16,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.StringReader;
+import java.util.ArrayList;
 
 
 public class Analisis {
@@ -190,4 +196,51 @@ public class Analisis {
         return builder.toString();
     }
 
+    public static ArrayList<Noticia> analizarNoticias(File file) throws XmlPullParserException, IOException {
+        int eventType;
+        ArrayList<Noticia> noticias = new ArrayList<>();
+        Noticia actual = null;
+        boolean dentroItem = false;
+        XmlPullParser xpp = Xml.newPullParser();
+        xpp.setInput(new FileReader(file));
+        eventType=xpp.getEventType();
+        while (eventType!=XmlPullParser.END_DOCUMENT){
+            switch (eventType) {
+                case XmlPullParser.START_DOCUMENT:
+                    break;
+                case XmlPullParser.START_TAG:
+                    switch (xpp.getName()) {
+                        case "item":
+                            actual = new Noticia();
+                            dentroItem = true;
+                            break;
+                        case "title":
+                            if(dentroItem && actual != null)
+                                actual.setTitular(xpp.nextText());
+                            break;
+                        case "link":
+                            if(dentroItem && actual != null)
+                                actual.setUrl(xpp.nextText());
+                            break;
+                    }
+                    break;
+                case XmlPullParser.END_TAG:
+                    switch (xpp.getName()) {
+                        case "item":
+                            if(dentroItem && actual != null)
+                                noticias.add(actual);
+                            actual = null;
+                            break;
+                    }
+                    break;
+            }
+            eventType = xpp.next();
+        }
+//devolver el array de noticias
+        return noticias;
+    }
 }
+
+
+
+
