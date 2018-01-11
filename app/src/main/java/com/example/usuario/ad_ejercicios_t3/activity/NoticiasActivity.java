@@ -1,12 +1,10 @@
 package com.example.usuario.ad_ejercicios_t3.activity;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.os.Environment;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Environment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -17,9 +15,7 @@ import com.example.usuario.ad_ejercicios_t3.Noticia;
 import com.example.usuario.ad_ejercicios_t3.R;
 import com.example.usuario.ad_ejercicios_t3.utils.Analisis;
 import com.example.usuario.ad_ejercicios_t3.utils.RestClient;
-import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.FileAsyncHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
 
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -42,15 +38,15 @@ public class NoticiasActivity extends AppCompatActivity {
         setContentView(R.layout.activity_noticias);
 
         noticias = new ArrayList<>();
-        adapter = new ArrayAdapter<>(this, R.layout.item_noticia);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
         listView = findViewById(android.R.id.list);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Bundle bundle = new Bundle();
-                bundle.putString("titular", noticias.get(i).getUrl());
-                Toast.makeText(NoticiasActivity.this, noticias.get(i).getTitular(), Toast.LENGTH_SHORT).show();
-                //startActivity(new Intent(NoticiasActivity.this, WebActivity.class), bundle);
+                Toast.makeText(NoticiasActivity.this, noticias.get(i).getUrl(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(NoticiasActivity.this, WebActivity.class);
+                intent.putExtra("url", noticias.get(i).getUrl());
+                startActivity(intent);
             }
         });
         listView.setAdapter(adapter);
@@ -67,8 +63,8 @@ public class NoticiasActivity extends AppCompatActivity {
                 try {
                     Toast.makeText(NoticiasActivity.this, "Descargando noticias", Toast.LENGTH_SHORT).show();
                     noticias = Analisis.analizarNoticias(file);
-                    //adapter.clear();
-                    //adapter.addAll(noticias);
+                    adapter.clear();
+                    adapter.addAll(noticias);
                 } catch (XmlPullParserException | IOException e) {
                     Toast.makeText(NoticiasActivity.this, "Error: " + e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                     e.printStackTrace();

@@ -2,11 +2,9 @@ package com.example.usuario.ad_ejercicios_t3.utils;
 
 import android.content.Context;
 import android.content.res.XmlResourceParser;
-import android.os.Environment;
 import android.util.Xml;
 
 import com.example.usuario.ad_ejercicios_t3.Noticia;
-import com.example.usuario.ad_ejercicios_t3.activity.NoticiasActivity;
 import com.example.usuario.ad_ejercicios_t3.R;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -236,7 +234,7 @@ public class Analisis {
             }
             eventType = xpp.next();
         }
-//devolver el array de noticias
+        //devolver el array de noticias
         return noticias;
     }
 }

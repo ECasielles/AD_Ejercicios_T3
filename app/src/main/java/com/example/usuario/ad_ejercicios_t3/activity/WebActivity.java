@@ -1,7 +1,7 @@
 package com.example.usuario.ad_ejercicios_t3.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -20,7 +20,7 @@ public class WebActivity extends AppCompatActivity {
         webView.setWebViewClient(new WebViewClient());
         //CAUTION
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadUrl(getIntent().getExtras().getString("titular"));
+        webView.loadUrl(getIntent().getExtras().getString("url"));
     }
 
 }
