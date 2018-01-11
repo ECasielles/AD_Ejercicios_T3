@@ -1,8 +1,8 @@
 package com.example.usuario.ad_ejercicios_t3.activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.example.usuario.ad_ejercicios_t3.R;
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, TitularesActivity.class));
                 break;
             case R.id.btnNoticias:
-                startActivity(new Intent(this, NoticiasActivity.class));
+                startActivity(new Intent(this, NewsActivity.class));
                 break;
             case R.id.btnCreacion:
                 startActivity(new Intent(this, CreacionActivity.class));
