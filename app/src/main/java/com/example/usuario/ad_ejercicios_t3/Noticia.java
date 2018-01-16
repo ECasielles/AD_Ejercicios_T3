@@ -1,7 +1,7 @@
 package com.example.usuario.ad_ejercicios_t3;
 
 public class Noticia {
-    String titular, url;
+    String titular, url, descripcion, pubDate;
 
     public String getTitular() {
         return titular;
@@ -14,6 +14,22 @@ public class Noticia {
     }
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getPubDate() {
+        return pubDate;
+    }
+
+    public void setPubDate(String pubDate) {
+        this.pubDate = pubDate;
     }
 
     @Override
